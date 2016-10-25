@@ -33,9 +33,46 @@
     <section class="container">
         <h3>Sign up for an Account</h3>
         <!-- Input your form here -->
-
+        <!--<form>
+            <input type="email" name="email" placeholder="email"><br>
+            <input type="password" name="password" placeholder="password"><br>
+            <input type="text" name="displayname" placeholder="display name"><br>
+            <input type="submit" value="Submit">
+        </form>
         <div>
-            <!-- Paragraph + Link to sign-in form -->
+            <!-- Paragraph + Link to sign-in form ->
+            <p><i>Already have an account?</i></p>
+            <a class="sign-in button" href="sign-in.html">SIGN IN</a>
+        </div> -->
+        
+        <div class="row">
+            <form class="col s12 authenticate" id="sign-up">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="display-name" type="text" class="validate">
+                        <label for="display-name">Display Name</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+        <div>
+            <!-- Paragrap + Link to sign-in form -->
+            <p class="sign-in"><em>Already have an account?</em><a href="sign-in.html"><button class="btn waves-effect waves-light sign-in button">Sign In</button></a></p>
         </div>
     </section>
 </body>
