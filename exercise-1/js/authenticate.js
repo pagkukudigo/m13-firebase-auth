@@ -51,9 +51,10 @@ $(function() {
     // Sign out: Function to log a user out of firebase
     var signOut = function() {
         // Sign out, then redirect
-
-
-
+        firebase.auth().signOut().then(function() {
+            console.log('tried to log out...');
+            window.location = 'sign-up.html';
+        });
     };
 
     // Assign event lister to form submission
@@ -68,13 +69,26 @@ $(function() {
     });
 
     // Assign click event to logout button
-
+    $('#log-out').on('click', function() {
+       console.log('clicked log out...');
+        signOut(); 
+    });
 
 
     // Authentication Change: see if a user is already signed in, and redirect
-
-            // Rediriect to index.html if there is a user and the pathname isn't '/'
-
-            // Redirect to sign-in if there is NOT a user and the pathname IS '/'
-
+    var checked;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (checked != true) {
+            var pathName = window.location.pathname;
+            // Redirect to index.html if there is a user and the pathname isn't '/'
+            if (user && pathName != '/') {
+                // user is signed in
+                window.location = '/';
+            } else if (!user && pathName == '/') { // Redirect to sign-in if there is NOT a user and the pathname IS '/'
+                window.location = '/sign-in.html'
+            }
+            checked = true;
+        }
+    });
+            
 });
